@@ -1,5 +1,4 @@
 import { action, computed, decorate, observable } from "mobx";
-
 class Store {
   /* @observable*/ devsList = [
     { name: "Jack", sp: 12 },
