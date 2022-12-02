@@ -2,11 +2,13 @@ import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
 
-import APIStore, { userStore } from "./lesson_5_async_req/store";
 import React, { Component } from "react";
+import StoreWithActions, {
+  appStoreWithActions,
+} from "./lesson_6_custom_reactions/storeWithReactions";
 
+import Counter from "./lesson_1/Counter";
 import DevTools from "mobx-react-devtools";
-import FetchUser from "./lesson_5_async_req/FetchUser";
 import ReactDOM from "react-dom";
 import { configure } from "mobx";
 
@@ -17,12 +19,15 @@ class App extends Component {
     return (
       <div className="App">
         <DevTools />
-        <FetchUser store={userStore} />
+        <Counter store={appStoreWithActions} />
       </div>
     );
   }
 }
 
-ReactDOM.render(<App store={APIStore} />, document.getElementById("root"));
+ReactDOM.render(
+  <App store={StoreWithActions} />,
+  document.getElementById("root")
+);
 
 serviceWorker.unregister();
