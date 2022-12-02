@@ -2,23 +2,22 @@ import * as serviceWorker from "./serviceWorker";
 
 import React, { Component } from "react";
 
+import CounterWithActions from "./lesson_3/CounterWithAction";
 import DevTools from "mobx-react-devtools";
 import ReactDOM from "react-dom";
-import Todos from "./lesson_2/Todos";
-import { todosObersableArray } from "./lesson_2/observableArray";
+import { counterObservableObjectWithActions } from "./lesson_3/observableObjectWithActions";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <DevTools />
-        <Todos todos={todosObersableArray} />
+        <CounterWithActions store={counterObservableObjectWithActions} />
       </div>
     );
   }
 }
 
 ReactDOM.render(<App />, document.getElementById("root"));
-todosObersableArray.push({ text: "Learn RN" });
 
 serviceWorker.unregister();
